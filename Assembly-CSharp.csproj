@@ -106,9 +106,11 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\Scripts\HandMove.cs" />
-     <Compile Include="Assets\Scripts\HandScripts\FingerMovement.cs" />
+     <Compile Include="Assets\Scripts\HandScripts\Finger.cs" />
+     <Compile Include="Assets\Scripts\HandScripts\Hand.cs" />
      <Compile Include="Assets\Scripts\MainManagement.cs" />
      <Compile Include="Assets\Scripts\PhotonInit.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />
