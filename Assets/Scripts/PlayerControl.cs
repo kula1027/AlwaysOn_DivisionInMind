@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour {
 	void Update () {
 		if(isMovable)Move ();
 		HeadTurn ();
-		TestClose ();
+		GetInput ();
 	}
 
 	private void Move(){
@@ -43,8 +43,32 @@ public class PlayerControl : MonoBehaviour {
 		cam.Rotate(new Vector3(-mY * rotSpeed, 0, 0));
 	}
 
-	private void TestClose(){
-		if (Input.GetButtonDown ("Fire1"))
+	private void GetInput(){
+		if (Input.GetKeyDown (KeyCode.Keypad7))
 			hand_R.CloseAll ();
+		if (Input.GetKeyDown (KeyCode.Keypad8))
+			hand_R.OpenAll ();
+
+		if (Input.GetKeyDown (KeyCode.Keypad1))
+			hand_R.OpenAt (0);
+		if (Input.GetKeyDown (KeyCode.Keypad2))
+			hand_R.OpenAt (1);
+		if (Input.GetKeyDown (KeyCode.Keypad3))
+			hand_R.OpenAt (2);
+		if (Input.GetKeyDown (KeyCode.Keypad4))
+			hand_R.OpenAt (3);
+		if (Input.GetKeyDown (KeyCode.Keypad5))
+			hand_R.OpenAt (4);
+
+		if (Input.GetKeyDown (KeyCode.Alpha1))
+			hand_R.CloseAt (0);
+		if (Input.GetKeyDown (KeyCode.Alpha2))
+			hand_R.CloseAt (1);
+		if (Input.GetKeyDown (KeyCode.Alpha3))
+			hand_R.CloseAt (2);
+		if (Input.GetKeyDown (KeyCode.Alpha4))
+			hand_R.CloseAt (3);
+		if (Input.GetKeyDown (KeyCode.Alpha5))
+			hand_R.CloseAt (4);
 	}
 }

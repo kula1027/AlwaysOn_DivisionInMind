@@ -27,6 +27,13 @@ public class Hand : MonoBehaviour {
 		f_ring.Close ();
 		f_little.Close ();
 	}
+	public void OpenAll(){
+		f_thumb.Open ();
+		f_point.Open ();
+		f_middle.Open ();
+		f_ring.Open ();
+		f_little.Open ();
+	}
 
 	public void CloseAt(int index){//0번째 -> 엄지 4번째 -> 새끼
 		switch (index) {
@@ -44,6 +51,25 @@ public class Hand : MonoBehaviour {
 			break;
 		case 4:
 			f_little.Close ();
+			break;
+		}
+	}
+	public void OpenAt(int index){//0번째 -> 엄지 4번째 -> 새끼
+		switch (index) {
+		case 0:
+			f_thumb.Open ();
+			break;
+		case 1:
+			f_point.Open ();
+			break;
+		case 2:
+			f_middle.Open ();
+			break;
+		case 3:
+			f_ring.Open ();
+			break;
+		case 4:
+			f_little.Open ();
 			break;
 		}
 	}
