@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Download Resources\omega_fighter_01\script\MouseLook.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\Demo2DJumpAndRunWithPhysics\Scripts\Demo2DJumpAndRun.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\Demo2DJumpAndRunWithPhysics\Scripts\JumpAndRunMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoBoxes\DemoBoxesGui.cs" />
@@ -156,6 +157,11 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\Scripts\1_Menu\Scene1_Main.cs" />
+     <Compile Include="Assets\Scripts\2_MyRoom\Scene2_Main.cs" />
+     <Compile Include="Assets\Scripts\2_MyRoom\Scene2_ShipMoving.cs" />
+     <Compile Include="Assets\Scripts\3_PlayerSelect\Scene3_Main.cs" />
+     <Compile Include="Assets\Scripts\4_Racing\Scene4_Main.cs" />
+     <Compile Include="Assets\Scripts\5_Result\Scene5_Main.cs" />
      <Compile Include="Assets\Scripts\CarMove.cs" />
      <Compile Include="Assets\Scripts\HandMove.cs" />
      <Compile Include="Assets\Scripts\HandScripts\Finger.cs" />
@@ -166,6 +172,7 @@
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Plugins\release_history.txt" />
+     <None Include="Assets\Download Resources\Figher Jet\license.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoBoxes\Resources\eurof_tt.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />

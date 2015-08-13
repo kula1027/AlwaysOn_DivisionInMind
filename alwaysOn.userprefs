@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarMove.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\2_MyRoom\Scene2_Main.cs">
     <Files>
-      <File FileName="Assets\Scripts\CarMove.cs" Line="31" Column="3" />
+      <File FileName="Assets\Scripts\1_Menu\Scene1_Main.cs" Line="16" Column="3" />
+      <File FileName="Assets\Download Resources\omega_fighter_01\script\MouseLook.cs" Line="18" Column="1" />
+      <File FileName="Assets\Scripts\2_MyRoom\Scene2_Main.cs" Line="22" Column="118" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
