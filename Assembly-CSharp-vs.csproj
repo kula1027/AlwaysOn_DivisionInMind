@@ -159,8 +159,11 @@
      <Compile Include="Assets\Scripts\1_Menu\Scene1_Main.cs" />
      <Compile Include="Assets\Scripts\2_MyRoom\Scene2_Main.cs" />
      <Compile Include="Assets\Scripts\2_MyRoom\Scene2_ShipMoving.cs" />
+     <Compile Include="Assets\Scripts\3_PlayerSelect\Controller.cs" />
+     <Compile Include="Assets\Scripts\3_PlayerSelect\GameMain.cs" />
      <Compile Include="Assets\Scripts\3_PlayerSelect\Scene3_Main.cs" />
      <Compile Include="Assets\Scripts\4_Racing\Scene4_Main.cs" />
+     <Compile Include="Assets\Scripts\4_Racing\Ship.cs" />
      <Compile Include="Assets\Scripts\5_Result\Scene5_Main.cs" />
      <Compile Include="Assets\Scripts\CarMove.cs" />
      <Compile Include="Assets\Scripts\HandMove.cs" />

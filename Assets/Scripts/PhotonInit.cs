@@ -5,6 +5,11 @@ public class PhotonInit : MonoBehaviour {
 
 	public string version = "v1.0";
 	public int sendRateOnSerialize = 10;
+	private bool ready = false;
+
+	void Awake(){
+		DontDestroyOnLoad(this);
+	}
 
 	void Start(){
 		PhotonNetwork.ConnectUsingSettings(version);
@@ -26,15 +31,11 @@ public class PhotonInit : MonoBehaviour {
 
 	void OnJoinedRoom(){
 		Debug.Log("Enter Room");
-		if(Application.platform == RuntimePlatform.Android){
-			StartCoroutine(this.CreateTank());
-		}
+		ready = true;
 	}
-
-	IEnumerator CreateTank(){
-		float pos = Random.Range(-3f, 3f);
-		PhotonNetwork.Instantiate("Hand", new Vector3(pos, 0, pos), Quaternion.identity, 0);
-		yield return null;
+	
+	public bool GetReady(){
+		return ready;
 	}
 
 }
