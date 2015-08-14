@@ -21,7 +21,9 @@ public class PhotonInit : MonoBehaviour {
 	}
 
 	void OnJoinedLobby(){
-		PhotonNetwork.JoinRandomRoom();
+		Debug.Log("Enter Lobby");
+		ready = true;
+		//PhotonNetwork.JoinRandomRoom();
 	}
 
 	void OnPhotonRandomJoinFailed(){
@@ -29,9 +31,17 @@ public class PhotonInit : MonoBehaviour {
 		PhotonNetwork.CreateRoom("MyRoom", true, true, 20);
 	}
 
+	public void OnJoinRandomRoom(){
+		PhotonNetwork.player.name = GameObject.Find("GameMain").GetComponent<GameMain>().GetID();
+		PhotonNetwork.JoinRandomRoom();
+
+	}
+
 	void OnJoinedRoom(){
 		Debug.Log("Enter Room");
-		ready = true;
+		if(Application.platform == RuntimePlatform.Android){
+			GameObject.Find("Canvas").GetComponent<Scene3_Main>().CreateController();
+		}
 	}
 	
 	public bool GetReady(){

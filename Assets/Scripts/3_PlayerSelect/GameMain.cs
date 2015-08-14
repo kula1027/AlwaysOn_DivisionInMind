@@ -5,20 +5,23 @@ public class GameMain : MonoBehaviour {
 
 
 	private string id = "xxx";
-	private GameObject targetController;
+	public GameObject targetController;
 	private PhotonInit photonInit;
-
+	public bool findTarget = false;
+	public bool ready = false;
+	
 	void Awake(){
 		DontDestroyOnLoad(this);
 	}
 
 	void Start () {
-		photonInit = GameObject.Find("PhotonInit").GetComponent<PhotonInit>();
+		photonInit = transform.GetComponent<PhotonInit>();
 		targetController = gameObject;
 	}
 	
 	void Update () {
 		InitMyController();
+		Exit();
 	}
 
 	private void InitMyController(){
@@ -27,16 +30,24 @@ public class GameMain : MonoBehaviour {
 				if(id != "xxx"){
 					if(targetController == gameObject){
 						for(int i = 0 ; i < transform.childCount ; i ++){
-							if(id == transform.GetChild(i).GetComponent<Controller>().GetID()){
+							if(id == transform.GetChild(i).GetComponent<PhotonView>().owner.name){
 								targetController = transform.GetChild(i).gameObject;
+								findTarget = true;
 								break;
 							}
 						}
 					}
 				}
+				if(findTarget){
+					if(targetController == null){
+						findTarget = false;
+					}
+				}
 			}
 		}
 	}
+
+
 
 	public GameObject GetMyController(){
 		return targetController;
@@ -48,5 +59,11 @@ public class GameMain : MonoBehaviour {
 
 	public void SetID(string id){
 		this.id = id;
+	}
+
+	private void Exit(){
+		if(Input.GetKey(KeyCode.Escape)){
+			Application.Quit();
+		}
 	}
 }

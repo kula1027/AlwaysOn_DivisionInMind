@@ -7,7 +7,6 @@
 namespace ExitGames.Client.Photon.Chat
 {
     using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// A channel of communication in Photon Chat, updated by ChatClient and provided as READ ONLY.
@@ -62,16 +61,6 @@ namespace ExitGames.Client.Photon.Chat
         {
             this.Senders.Clear();
             this.Messages.Clear();
-        }
-
-        public string ToStringMessages()
-        {
-            StringBuilder txt = new StringBuilder();
-            for (int i = 0; i < this.Messages.Count; i++)
-            {
-                txt.AppendLine(string.Format("{0}: {1}", this.Senders[i], this.Messages[i]));
-            }
-            return txt.ToString();
         }
     }
 }

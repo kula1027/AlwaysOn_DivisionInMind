@@ -7,8 +7,8 @@ public class Finger: MonoBehaviour{
 	private Transform point_hi;
 
 	private float start_low;
-	private float start_mid;
-	private float start_hi;
+	//private float start_mid;
+	//private float start_hi;
 
 	private bool isThumb;
 
@@ -27,8 +27,8 @@ public class Finger: MonoBehaviour{
 		}
 
 		start_low = point_low.localEulerAngles.x;
-		if(!isThumb)start_mid = point_mid.localEulerAngles.x;
-		start_hi = point_hi.localEulerAngles.x;
+		//if(!isThumb)start_mid = point_mid.localEulerAngles.x;
+		//start_hi = point_hi.localEulerAngles.x;
 
 		rotSpeed = 100f;
 		isMoving = false;

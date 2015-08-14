@@ -1,23 +1,36 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\3_PlayerSelect\GameMain.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HandScripts\Finger.cs">
     <Files>
-      <File FileName="Assets\Scripts\1_Menu\Scene1_Main.cs" Line="16" Column="3" />
-      <File FileName="Assets\Download Resources\omega_fighter_01\script\MouseLook.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\2_MyRoom\Scene2_Main.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\2_MyRoom\Scene2_ShipMoving.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PhotonInit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\3_PlayerSelect\Scene3_Main.cs" Line="7" Column="1" />
-      <File FileName="Assets\Scripts\3_PlayerSelect\GameMain.cs" Line="18" Column="23" />
-      <File FileName="Assets\Scripts\3_PlayerSelect\Controller.cs" Line="9" Column="50" />
+      <File FileName="Assets\Scripts\3_PlayerSelect\Scene3_Main.cs" Line="18" Column="71" />
+      <File FileName="Assets\Scripts\PhotonInit.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\3_PlayerSelect\Controller.cs" Line="12" Column="22" />
+      <File FileName="Assets\Scripts\3_PlayerSelect\GameMain.cs" Line="50" Column="1" />
+      <File FileName="Assets\Scripts\4_Racing\Scene4_Main.cs" Line="9" Column="55" />
+      <File FileName="Assets\Scripts\4_Racing\Ship.cs" Line="16" Column="61" />
+      <File FileName="Assets\Scripts\HandScripts\Finger.cs" Line="31" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Photon Unity Networking" expanded="True">
+              <Node name="Plugins" expanded="True">
+                <Node name="PhotonNetwork" expanded="True" />
+              </Node>
+            </Node>
             <Node name="Scripts" expanded="True">
-              <Node name="3_PlayerSelect" expanded="True">
-                <Node name="GameMain.cs" selected="True" />
+              <Node name="3_PlayerSelect" expanded="True" />
+              <Node name="4_Racing" expanded="True" />
+              <Node name="HandScripts" expanded="True">
+                <Node name="Finger.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Assembly-CSharp-Editor" expanded="True">
+            <Node name="Photon Unity Networking" expanded="True">
+              <Node name="Editor" expanded="True">
+                <Node name="PhotonNetwork" expanded="True" />
               </Node>
             </Node>
           </Node>

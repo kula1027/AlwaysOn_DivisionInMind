@@ -390,16 +390,6 @@ public enum PhotonNetworkingMessage
     /// </remarks>
     /// <example>void OnOwnershipRequest(object[] viewAndPlayer) {} //</example>
     OnOwnershipRequest,
-    
-    /// <summary>
-    /// Called when the Master Server sent an update for the Lobby Statistics, updating PhotonNetwork.LobbyStatistics.
-    /// </summary>
-    /// <remarks>
-    /// This callback has two preconditions:
-    /// EnableLobbyStatistics must be set to true, before this client connects.
-    /// And the client has to be connected to the Master Server, which is providing the info about lobbies.
-    /// </remarks>
-    OnLobbyStatisticsUpdate,
 }
 
 
@@ -456,25 +446,12 @@ public enum LobbyType :byte
 }
 
 
-/// <summary>Currently available <a href="http://doc.photonengine.com/en/pun/current/reference/regions">Photon Cloud regions</a> as enum.</summary>
+/// <summary>Currently available cloud regions as enum.</summary>
 /// <remarks>
-/// This is used in PhotonNetwork.ConnectToRegion.
+/// Must match order in CloudServerRegionNames and CloudServerRegionPrefixes.
+/// To keep things compatible with older ServerSettings, "none" is the final value, not the first.
 /// </remarks>
-public enum CloudRegionCode
-{
-    /// <summary>European servers in Amsterdam.</summary>
-    eu = 0,
-    /// <summary>US servers (East Coast).</summary>
-    us = 1,
-    /// <summary>Asian servers in Singapore.</summary>
-    asia = 2,
-    /// <summary>Japanese servers in Tokyo.</summary>
-    jp = 3,
-    /// <summary>Australian servers in Melbourne.</summary>
-    au = 5,
-    /// <summary>No region selectedcs.</summary>
-    none = 4
-};
+public enum CloudRegionCode { eu = 0, us = 1, asia = 2, jp = 3, au = 5, none = 4 };
 
 
 /// <summary>
@@ -493,14 +470,10 @@ public enum CloudRegionFlag
 
 
 /// <summary>Available server (types) for internally used field: server.</summary>
-/// <remarks>Photon uses 3 different roles of servers: Name Server, Master Server and Game Server.</remarks>
 public enum ServerConnection
 {
-    /// <summary>This server is where matchmaking gets done and where clients can get lists of rooms in lobbies.</summary>
     MasterServer,
-    /// <summary>This server handles a number of rooms to execute and relay the messages between players (in a room).</summary>
     GameServer,
-    /// <summary>This server is used initially to get the address (IP) of a Master Server for a specific region. Not used for Photon OnPremise (self hosted).</summary>
     NameServer
 }
 

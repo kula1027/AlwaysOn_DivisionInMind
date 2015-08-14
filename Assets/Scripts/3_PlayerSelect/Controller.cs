@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class Controller : MonoBehaviour {
-	
-	private string id;
+
 	private PhotonView pv;
 	private Gyroscope gyro;
 	private Quaternion curRot = Quaternion.identity;
@@ -13,7 +12,6 @@ public class Controller : MonoBehaviour {
 		pv.observed = this;
 		transform.parent = GameObject.Find("GameMain").transform;
 		if(pv.isMine){
-			id = GameObject.Find("GameMain").GetComponent<GameMain>().GetID();
 			if(Application.platform == RuntimePlatform.Android){
 				gyro = Input.gyro;
 				gyro.enabled = true;
@@ -38,10 +36,6 @@ public class Controller : MonoBehaviour {
 		}
 	}
 
-	public string GetID(){
-		return id;
-	}
-	
 	Quaternion GyroConvert(Quaternion q){
 		return Quaternion.Euler(90, 0, 0)*(new Quaternion(-q.x, -q.y, q.z, q.w));
 	}

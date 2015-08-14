@@ -3,13 +3,22 @@ using System.Collections;
 
 public class Scene4_Main : MonoBehaviour {
 
-	// Use this for initialization
+
 	void Start () {
-	
+		PhotonNetwork.isMessageQueueRunning = true;
+		if(Application.platform != RuntimePlatform.Android){
+			CreateShip();
+		}
+
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
+
+	
+	public void CreateShip(){
+		PhotonNetwork.Instantiate("4_Racing/Ship", new Vector3(PhotonNetwork.player.ID*3, 0, 0), Quaternion.identity, 0);
+	}
+
 }
