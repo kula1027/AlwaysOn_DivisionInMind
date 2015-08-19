@@ -12,7 +12,11 @@ public class Scene1_Main : MonoBehaviour {
 	}
 
 	public void OnButtonStart(){
-		Application.LoadLevel("2_MyRoom");
+		if(Application.platform == RuntimePlatform.Android){
+			Application.LoadLevel("3_PlayerSelect");
+		}else{
+			Application.LoadLevel("2_MyRoom");
+		}
 	}
 
 	public void OnButtonExit(){

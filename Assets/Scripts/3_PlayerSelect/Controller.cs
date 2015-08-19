@@ -3,9 +3,12 @@ using System.Collections;
 
 public class Controller : MonoBehaviour {
 
+	public bool findOwner = false;
+
 	private PhotonView pv;
 	private Gyroscope gyro;
 	private Quaternion curRot = Quaternion.identity;
+	private Quaternion initRot = Quaternion.identity;
 	
 	void Start () {
 		pv = transform.GetComponent<PhotonView>();
@@ -18,6 +21,10 @@ public class Controller : MonoBehaviour {
 			}
 		}
 		curRot = transform.rotation;
+	}
+
+	public void SettingVecter(){
+		initRot = GyroConvert(Input.gyro.attitude);
 	}
 	
 	void Update () {
@@ -39,4 +46,7 @@ public class Controller : MonoBehaviour {
 	Quaternion GyroConvert(Quaternion q){
 		return Quaternion.Euler(90, 0, 0)*(new Quaternion(-q.x, -q.y, q.z, q.w));
 	}
+
+
+
 }

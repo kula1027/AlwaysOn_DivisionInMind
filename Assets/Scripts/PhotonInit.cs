@@ -23,7 +23,9 @@ public class PhotonInit : MonoBehaviour {
 	void OnJoinedLobby(){
 		Debug.Log("Enter Lobby");
 		ready = true;
-		//PhotonNetwork.JoinRandomRoom();
+		if(Application.platform != RuntimePlatform.Android){
+			PhotonNetwork.JoinRandomRoom();
+		}
 	}
 
 	void OnPhotonRandomJoinFailed(){

@@ -7,10 +7,13 @@ public class Ship : MonoBehaviour {
 	private Vector3 curPos = Vector3.zero;
 	private Quaternion curRot = Quaternion.identity;
 	private GameMain gameMain;
+
+	private Vector3 firstRot;
 	
 	void Start () {
 		pv = transform.GetComponent<PhotonView>();
 		gameMain = GameObject.Find("GameMain").GetComponent<GameMain>();
+		firstRot = gameMain.GetMyController().transform.rotation.eulerAngles;
 		pv.observed = this;
 		if(pv.isMine){
 			transform.FindChild("Camera").gameObject.SetActive(true);
@@ -21,8 +24,10 @@ public class Ship : MonoBehaviour {
 	
 	void Update () {
 		if(pv.isMine){
-			curRot = gameMain.GetMyController().transform.rotation;
-			transform.rotation = Quaternion.Lerp(transform.rotation, curRot, Time.deltaTime*5f);
+			curRot = Quaternion.Euler(firstRot - gameMain.GetMyController().transform.rotation.eulerAngles);
+			transform.Rotate(new Vector3(0,10,0)*Time.deltaTime);
+			//transform.rotation = Quaternion.Lerp(transform.rotation, curRot, Time.deltaTime*5f);
+			//transform.position += transform.forward;
 		}else{
 			transform.position = Vector3.Lerp(transform.position, curPos, Time.deltaTime*5f);
 			transform.rotation = Quaternion.Lerp(transform.rotation, curRot, Time.deltaTime*5f);
@@ -32,7 +37,7 @@ public class Ship : MonoBehaviour {
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
 		if(stream.isWriting){
 			stream.SendNext(transform.position);
-			stream.SendNext(gameMain.GetMyController().transform.rotation);
+			stream.SendNext(curRot);
 		}else{
 			curPos = (Vector3)stream.ReceiveNext();
 			curRot = (Quaternion)stream.ReceiveNext();

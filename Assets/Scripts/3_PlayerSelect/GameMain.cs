@@ -20,7 +20,7 @@ public class GameMain : MonoBehaviour {
 	}
 	
 	void Update () {
-		InitMyController();
+		//InitMyController();
 		Exit();
 	}
 
@@ -45,6 +45,11 @@ public class GameMain : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void SetController(GameObject controller){
+		findTarget = true;
+		targetController = controller;
 	}
 
 
