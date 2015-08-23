@@ -8,7 +8,7 @@ public class PhotonInit : MonoBehaviour {
 	private bool ready = false;
 
 	void Awake(){
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 	}
 
 	void Start(){
@@ -25,7 +25,13 @@ public class PhotonInit : MonoBehaviour {
 		ready = true;
 		if(Application.platform != RuntimePlatform.Android){
 			PhotonNetwork.JoinRandomRoom();
+		}else{
+			OnWaitScreen(false);
 		}
+	}
+
+	public void OnWaitScreen(bool on){
+		GameObject.Find("Canvas").GetComponent<Scene3_Main>().onlyAndriods[3].SetActive(on);
 	}
 
 	void OnPhotonRandomJoinFailed(){
@@ -43,6 +49,7 @@ public class PhotonInit : MonoBehaviour {
 		Debug.Log("Enter Room");
 		if(Application.platform == RuntimePlatform.Android){
 			GameObject.Find("Canvas").GetComponent<Scene3_Main>().CreateController();
+			OnWaitScreen(false);
 		}
 	}
 	

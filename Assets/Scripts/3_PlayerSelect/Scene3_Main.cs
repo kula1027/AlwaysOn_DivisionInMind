@@ -17,14 +17,17 @@ public class Scene3_Main : MonoBehaviour {
 	void Start(){
 		if(Application.platform != RuntimePlatform.Android){
 			onlyAndriods[0].SetActive(false);
+			onlyAndriods[3].SetActive(false);
 		}else{
 			onlyAndriods[0].SetActive(true);
+			onlyAndriods[3].SetActive(true);
 		}
 		onlyAndriods[1].SetActive(false);
 		onlyAndriods[2].SetActive(false);
 	}
 
 	void Update(){
+		Exit();
 		if(numberOfControllers != controllerBox.transform.childCount){
 			if(numberOfControllers < controllerBox.transform.childCount){
 				CreateButton(numberOfControllers, controllerBox.transform.GetChild(numberOfControllers).GetComponent<PhotonView>().owner.name);
@@ -63,11 +66,29 @@ public class Scene3_Main : MonoBehaviour {
 			GameObject.Find("GameMain").GetComponent<GameMain>().SetID(input.text);
 			GameObject.Find("GameMain").GetComponent<PhotonInit>().OnJoinRandomRoom();
 			onlyAndriods[1].SetActive(true);
+			onlyAndriods[3].SetActive(true);
 		}
 	}
 
 	public void OnButtonSetting(){
+		int count = GameObject.Find("GameMain").GetComponent<GameMain>().transform.childCount;
+		bool find = false;
+		for(int i = 0 ; i < count ; i ++){
+			if(GameObject.Find("GameMain").transform.GetChild(i).GetComponent<PhotonView>().isMine){
+				if(GameObject.Find("GameMain").transform.GetChild(i).GetComponent<Controller>()){
+					GameObject.Find("GameMain").transform.GetChild(i).GetComponent<Controller>().SettingVecter();
+					find = true;
+				}
+			}
+		}
+		if(!find){
+			Application.Quit();
+		}
 		onlyAndriods[2].SetActive(true);
+	}
+
+	public void OnButtonResetting(){
+		onlyAndriods[2].SetActive(false);
 	}
 
 	public void OnButtonIDForDeskTop(Button button){
@@ -111,6 +132,12 @@ public class Scene3_Main : MonoBehaviour {
 					Debug.Log("already find player!!");
 				}
 			}
+		}
+	}
+
+	private void Exit(){
+		if(Input.GetKey(KeyCode.Escape)){
+			Application.Quit();
 		}
 	}
 	

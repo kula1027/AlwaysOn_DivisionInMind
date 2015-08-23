@@ -20,31 +20,7 @@ public class GameMain : MonoBehaviour {
 	}
 	
 	void Update () {
-		//InitMyController();
-		Exit();
-	}
 
-	private void InitMyController(){
-		if(photonInit.GetReady()){
-			if(Application.platform != RuntimePlatform.Android){
-				if(id != "xxx"){
-					if(targetController == gameObject){
-						for(int i = 0 ; i < transform.childCount ; i ++){
-							if(id == transform.GetChild(i).GetComponent<PhotonView>().owner.name){
-								targetController = transform.GetChild(i).gameObject;
-								findTarget = true;
-								break;
-							}
-						}
-					}
-				}
-				if(findTarget){
-					if(targetController == null){
-						findTarget = false;
-					}
-				}
-			}
-		}
 	}
 
 	public void SetController(GameObject controller){
@@ -66,9 +42,5 @@ public class GameMain : MonoBehaviour {
 		this.id = id;
 	}
 
-	private void Exit(){
-		if(Input.GetKey(KeyCode.Escape)){
-			Application.Quit();
-		}
-	}
+
 }
