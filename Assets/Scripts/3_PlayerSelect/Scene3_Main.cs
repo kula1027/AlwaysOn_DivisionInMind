@@ -98,11 +98,21 @@ public class Scene3_Main : MonoBehaviour {
 		}
 	}
 
-	public void OnButtonReady(){
+	public void OnButtonReadyRace(){
 		if(Application.platform != RuntimePlatform.Android){
 			if(GameObject.Find("GameMain").GetComponent<GameMain>().findTarget){
 				GameObject.Find("GameMain").GetComponent<GameMain>().ready = true;
-				transform.GetComponent<PhotonView>().RPC("GoNextScene", PhotonTargets.All, null);
+				transform.GetComponent<PhotonView>().RPC("GoNextSceneRace", PhotonTargets.All, null);
+				//GoNextScene();
+			}
+		}
+	}
+
+	public void OnButtonReadyKeyBoard(){
+		if(Application.platform != RuntimePlatform.Android){
+			if(GameObject.Find("GameMain").GetComponent<GameMain>().findTarget){
+				GameObject.Find("GameMain").GetComponent<GameMain>().ready = true;
+				transform.GetComponent<PhotonView>().RPC("GoNextSceneKeyBoard", PhotonTargets.All, null);
 				//GoNextScene();
 			}
 		}
@@ -146,9 +156,15 @@ public class Scene3_Main : MonoBehaviour {
 	}
 
 	[PunRPC]
-	void GoNextScene(){
+	void GoNextSceneRace(){
 		PhotonNetwork.isMessageQueueRunning = false;
 		Application.LoadLevel("4_Racing");
+	}
+
+	[PunRPC]
+	void GoNextSceneKeyBoard(){
+		PhotonNetwork.isMessageQueueRunning = false;
+		Application.LoadLevel("4_1_KeyBoardMode");
 	}
 
 	[PunRPC]

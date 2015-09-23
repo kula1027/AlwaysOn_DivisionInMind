@@ -127,6 +127,9 @@
      <Compile Include="Assets\Scripts\3_PlayerSelect\ControllerButton.cs" />
      <Compile Include="Assets\Scripts\3_PlayerSelect\GameMain.cs" />
      <Compile Include="Assets\Scripts\3_PlayerSelect\Scene3_Main.cs" />
+     <Compile Include="Assets\Scripts\4_1_KeyBoardMode\MyInput.cs" />
+     <Compile Include="Assets\Scripts\4_1_KeyBoardMode\Scene4_1_Main.cs" />
+     <Compile Include="Assets\Scripts\4_1_KeyBoardMode\fdsafdsa.cs" />
      <Compile Include="Assets\Scripts\4_Racing\FollowingCamera.cs" />
      <Compile Include="Assets\Scripts\4_Racing\Scene4_Main.cs" />
      <Compile Include="Assets\Scripts\4_Racing\Ship.cs" />

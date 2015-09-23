@@ -12,7 +12,7 @@ public class CarMove : MonoBehaviour {
 	}
 
 	void Update () {
-	
+
 	}
 
 	public void RotateRight(){
@@ -28,7 +28,24 @@ public class CarMove : MonoBehaviour {
 	}
 
 	public void RotateDown(){
-
+		X x = new Y();
 	}
 
+
+
+
+}
+
+
+public abstract class X{
+	int x;
+	abstract public void testFunc();
+}
+
+public class Y : X{
+	int y;
+
+	public override void testFunc(){
+
+	}
 }

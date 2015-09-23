@@ -35,9 +35,9 @@ public class Ship : MonoBehaviour {
 			if(y < -360) y += 360;
 			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(curRot.x, y,curRot.z)), Time.deltaTime*5f);
 			if(gameMain.GetMyController().GetComponent<Controller>().GetEngine()){
-				transform.GetComponent<Rigidbody>().AddForce(ship.transform.forward * Time.deltaTime * 1000);
+				transform.GetComponent<Rigidbody>().AddForce(ship.transform.forward * Time.deltaTime * 4000);
 				Debug.Log(Vector3.Distance(Vector3.zero, transform.GetComponent<Rigidbody>().velocity));
-				if(50<Vector3.Distance(Vector3.zero, transform.GetComponent<Rigidbody>().velocity)){
+				if(40<Vector3.Distance(Vector3.zero, transform.GetComponent<Rigidbody>().velocity)){
 					transform.GetComponent<Rigidbody>().velocity *= 0.95f;
 				}
 			}

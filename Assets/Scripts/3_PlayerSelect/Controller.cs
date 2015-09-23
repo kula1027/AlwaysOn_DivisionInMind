@@ -9,6 +9,8 @@ public class Controller : MonoBehaviour {
 	
 	public bool engine = false;
 
+	public bool L1, L2, R1, R2;
+
 	private PhotonView pv;
 	private Gyroscope gyro;
 	private Quaternion curRot = Quaternion.identity;
@@ -69,6 +71,23 @@ public class Controller : MonoBehaviour {
 		engine = on;
 	}
 
+	public void SetL1(bool on){
+		pv.RPC("RPC_SetL1", PhotonTargets.Others, on);
+		L1 = on;
+	}
+	public void SetL2(bool on){
+		pv.RPC("RPC_SetL2", PhotonTargets.Others, on);
+		L2 = on;
+	}
+	public void SetR1(bool on){
+		pv.RPC("RPC_SetR1", PhotonTargets.Others, on);
+		R1 = on;
+	}
+	public void SetR2(bool on){
+		pv.RPC("RPC_SetR2", PhotonTargets.Others, on);
+		R2 = on;
+	}
+
 	public bool GetEngine(){
 		return engine;
 	}
@@ -76,6 +95,43 @@ public class Controller : MonoBehaviour {
 	[PunRPC]
 	void RPC_SetEngine(bool on){
 		engine = on;
+	}
+
+	[PunRPC]
+	void RPC_SetR1(bool on){
+		R1 = on;
+		if(on){
+			GameObject.Find("MyInput").SendMessage("SetKeyUp", MyInput.KeyCode.R1);
+		}else{
+			GameObject.Find("MyInput").SendMessage("SetKeyDown", MyInput.KeyCode.R1);
+		}
+	}
+	[PunRPC]
+	void RPC_SetR2(bool on){
+		R2 = on;
+		if(on){
+			GameObject.Find("MyInput").SendMessage("SetKeyUp", MyInput.KeyCode.R2);
+		}else{
+			GameObject.Find("MyInput").SendMessage("SetKeyDown", MyInput.KeyCode.R2);
+		}
+	}
+	[PunRPC]
+	void RPC_SetL1(bool on){
+		L1 = on;
+		if(on){
+			GameObject.Find("MyInput").SendMessage("SetKeyUp", MyInput.KeyCode.L1);
+		}else{
+			GameObject.Find("MyInput").SendMessage("SetKeyDown", MyInput.KeyCode.L1);
+		}
+	}
+	[PunRPC]
+	void RPC_SetL2(bool on){
+		L2 = on;
+		if(on){
+			GameObject.Find("MyInput").SendMessage("SetKeyUp", MyInput.KeyCode.L2);
+		}else{
+			GameObject.Find("MyInput").SendMessage("SetKeyDown", MyInput.KeyCode.L2);
+		}
 	}
 	
 }
